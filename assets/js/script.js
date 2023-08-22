@@ -42,40 +42,24 @@ myInput.addEventListener('blur', function() {
     }
 });
 
-let slideIndex = 1;
-showSlides(slideIndex);
+document.addEventListener('DOMContentLoaded', () => {
+    const blocs = document.querySelectorAll('.working__bloc');
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
+    blocs.forEach(bloc => {
+        bloc.addEventListener('click', () => {
+            // Réinitialiser tous les blocs
+            blocs.forEach(b => {
+                b.setAttribute('data-expanded', 'false');
+                b.style.backgroundColor = '#F3F3F3'; // Réinitialiser la couleur de fond
+                b.querySelector('.icon').textContent = '-';
+                b.querySelector('.description').style.display = 'none'; // Cacher le lorem ipsum
+            });
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    const slides = document.querySelectorAll(".carousel-slide");
-    const dots = document.querySelectorAll(".dot");
-
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
-
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.remove("active");
-    }
-
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].classList.add("active");
-}
-
-document.querySelector(".prev").addEventListener("click", function() {
-    plusSlides(-1);
-});
-
-document.querySelector(".next").addEventListener("click", function() {
-    plusSlides(1);
+            // Mettre à jour le bloc cliqué
+            bloc.setAttribute('data-expanded', 'true');
+            bloc.style.backgroundColor = '#B9FF66'; // Changer la couleur de fond
+            bloc.querySelector('.icon').textContent = '+';
+            bloc.querySelector('.description').style.display = 'block'; // Montrer le lorem ipsum
+        });
+    });
 });
