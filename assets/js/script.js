@@ -30,6 +30,17 @@ document.addEventListener('click', function(event) {
     }
 });
 
+document.querySelectorAll('#mySidenav a').forEach(link => {
+    link.addEventListener('click', closeNav);
+  });
+
+  closeBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    closeNav();
+});
+
+
 const myInput = document.getElementById("myInput");
 
 myInput.addEventListener('focus', function() {
@@ -47,19 +58,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     blocs.forEach(bloc => {
         bloc.addEventListener('click', () => {
-            // Réinitialiser tous les blocs
             blocs.forEach(b => {
                 b.setAttribute('data-expanded', 'false');
-                b.style.backgroundColor = '#F3F3F3'; // Réinitialiser la couleur de fond
+                b.style.backgroundColor = '#F3F3F3';
                 b.querySelector('.icon').textContent = '-';
-                b.querySelector('.description').style.display = 'none'; // Cacher le lorem ipsum
+                b.querySelector('.description').style.display = 'none';
             });
 
-            // Mettre à jour le bloc cliqué
             bloc.setAttribute('data-expanded', 'true');
-            bloc.style.backgroundColor = '#B9FF66'; // Changer la couleur de fond
+            bloc.style.backgroundColor = '#B9FF66';
             bloc.querySelector('.icon').textContent = '+';
-            bloc.querySelector('.description').style.display = 'block'; // Montrer le lorem ipsum
+            bloc.querySelector('.description').style.display = 'block';
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    let currentIdx = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+  
+    function updateTestimonials() {
+      testimonials.forEach((t, idx) => {
+        t.classList.remove('active');
+        if(idx === currentIdx) {
+          t.classList.add('active');
+        }
+      });
+    }
+  
+    // Initialize
+    updateTestimonials();
+  
+    // Set automatic slide
+    setInterval(() => {
+      currentIdx = (currentIdx + 1) % testimonials.length;
+      updateTestimonials();
+    }, 5000); // 5 seconds
+  
+    // Previous button
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIdx = (currentIdx - 1 + testimonials.length) % testimonials.length;
+      updateTestimonials();
+    });
+  
+    // Next button
+    document.getElementById('next').addEventListener('click', () => {
+      currentIdx = (currentIdx + 1) % testimonials.length;
+      updateTestimonials();
+    });
+  });
+  
