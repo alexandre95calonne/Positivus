@@ -86,22 +86,18 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
   
-    // Initialize
     updateTestimonials();
   
-    // Set automatic slide
     setInterval(() => {
       currentIdx = (currentIdx + 1) % testimonials.length;
       updateTestimonials();
-    }, 5000); // 5 seconds
+    }, 5000);
   
-    // Previous button
     document.getElementById('prev').addEventListener('click', () => {
       currentIdx = (currentIdx - 1 + testimonials.length) % testimonials.length;
       updateTestimonials();
     });
   
-    // Next button
     document.getElementById('next').addEventListener('click', () => {
       currentIdx = (currentIdx + 1) % testimonials.length;
       updateTestimonials();

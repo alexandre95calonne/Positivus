@@ -909,11 +909,11 @@ header {
     }
 
     img {
-        width: 290px; // Faites en sorte que l'image prenne toute la largeur de son conteneur parent
-        height: 300px; // Agrandissez l'image de 20%
-        position: absolute; // Positionnez l'image absolument par rapport à proposal__container
-        top: -10%; // Déplacez l'image vers le haut
-        left: 85%; // Centrez l'image horizontalement
+        width: 290px;
+        height: 300px;
+        position: absolute;
+        top: -10%;
+        left: 85%;
         transform: translateX(-50%) scale(1.2);
     }
 }
@@ -1138,8 +1138,6 @@ header {
 }
 
 /* WORKING */
-
-/* !! H2 A BIEN REGLER POUR LE SURLIGNEMENT VERT */
 
 .working {
     .working__head {
