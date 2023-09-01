@@ -31,6 +31,22 @@ body {
     padding: 3rem 2rem;
   }
 }
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .sidenav {
   height: 100%;
   width: 350px;
@@ -128,6 +144,9 @@ header .request {
   padding: 1rem;
   border-radius: 15px;
   cursor: pointer;
+}
+header .request:hover {
+  background-color: #F5F5F5;
 }
 
 @media screen and (max-width: 1250px) {
@@ -807,7 +826,6 @@ header .request {
   }
 }
 /* WORKING */
-/* !! H2 A BIEN REGLER POUR LE SURLIGNEMENT VERT */
 .working .working__head {
   display: flex;
   flex-direction: row;
@@ -1224,6 +1242,7 @@ header .request {
   display: block;
 }
 #content .testimonial blockquote {
+  height: 250px;
   margin: 10px 10px 0;
   background: #191A23;
   padding: 20px 60px;
@@ -1232,6 +1251,8 @@ header .request {
   border-radius: 8px;
   font-style: italic;
   color: #fff;
+  display: flex;
+  align-items: center;
 }
 #content .testimonial blockquote:before,
 #content .testimonial blockquote:after {
@@ -1295,9 +1316,24 @@ header .request {
     margin-top: 3rem;
   }
 }
+@media screen and (max-width: 750px) {
+  .testimonials .testimonials__container #content .testimonial blockquote {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .testimonials .testimonials__container #content .testimonial blockquote {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .testimonials .testimonials__container #content .testimonial blockquote {
+    height: 500px;
+  }
+}
 @media screen and (max-width: 550px) {
   .testimonials .testimonials__container blockquote {
-    font-size: 17px;
+    font-size: 19px;
   }
   .testimonials .testimonials__container #content blockquote:before,
   .testimonials .testimonials__container #content blockquote:after {
@@ -1306,6 +1342,11 @@ header .request {
   .testimonials .testimonials__container #content blockquote:before {
     top: 10px;
     left: 10px;
+  }
+}
+@media screen and (max-width: 410px) {
+  .testimonials .testimonials__container #content .testimonial blockquote {
+    height: 600px;
   }
 }
 @media screen and (max-width: 370px) {
@@ -1319,6 +1360,11 @@ header .request {
   .testimonials .testimonials__container #content blockquote:before {
     top: 10px;
     left: 10px;
+  }
+}
+@media screen and (max-width: 315px) {
+  .testimonials .testimonials__container #content .testimonial blockquote {
+    height: 700px;
   }
 }
 /* CONTACT */
