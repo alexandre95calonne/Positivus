@@ -3,7 +3,6 @@ var openBtn = document.getElementById("openBtn");
 var closeBtn = document.getElementById("closeBtn");
 
 openBtn.addEventListener('click', function (event) {
-  console.log('cc tmr')
   openNav()
 });
 
